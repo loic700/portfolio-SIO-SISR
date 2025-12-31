@@ -299,3 +299,21 @@ footer {
     /* Sur mobile, la map reste assez haute pour être utilisable */
     iframe { height: 400px; }
 }
+
+
+
+/* --- STYLES POUR LA MODALE (SUNSET) --- */
+.modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(67, 20, 7, 0.4); backdrop-filter: blur(8px); z-index: 2000;
+    justify-content: center; align-items: center; padding: 2rem;
+}
+.modal-content {
+    background: white; border-radius: var(--radius); padding: 2.5rem;
+    max-width: 800px; width: 100%; position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--primary); margin-bottom: 1.5rem; padding-bottom: 0.5rem; }
+.modal-close { font-size: 2rem; border: none; background: none; cursor: pointer; color: var(--secondary); }
+.modal-question { color: var(--secondary); font-weight: 800; margin: 1.5rem 0 0.5rem 0; text-transform: uppercase; }
+.btn-more { display: inline-block; margin-top: 1.5rem; color: var(--primary); font-weight: 700; cursor: pointer; }
