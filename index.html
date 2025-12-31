@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loic Kebabla - Portfolio</title>
+    <title>111Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="css/style15.css">
@@ -11,9 +11,8 @@
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme');
-            const themeLink = document.getElementById('theme-style');
             if (savedTheme === 'dark') {
-                themeLink.setAttribute('href', 'css/style9_darkg.css');
+                document.getElementById('theme-style').setAttribute('href', 'css/style9_darkg.css');
             }
         })();
     </script>
@@ -24,7 +23,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
             <ul class="nav-links">
-                <li><a href="." class="active">Accueil</a></li>
+                <li><a href="index.html" class="active">Accueil</a></li>
                 <li><a href="./diplomes/">Diplômes</a></li>
                 <li><a href="./formation/">Formation</a></li>
                 <li><a href="./stage/">Stages</a></li>
@@ -55,7 +54,6 @@
             <section id="projects">
                 <h2 class="section-title">Mes Projets Récents</h2>
                 <div class="grid-container">
-                    
                     <article class="card">
                         <span class="tag finished">Terminé ✅</span>
                         <h3>Mise en place d'un serveur</h3>

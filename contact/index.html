@@ -3,36 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Loic Kebabla</title>
+    <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.getElementById('theme-style').setAttribute('href', '../css/style9_darkg.css');
+            }
+        })();
+    </script>
 </head>
 <body>
     
 <script>
-        // Gestion du Thème
         function toggleTheme() {
             const themeLink = document.getElementById('theme-style');
-            const currentTheme = themeLink.getAttribute('href');
-
-            if (currentTheme.includes('style15.css')) {
-                themeLink.setAttribute('href', '../css/style9_darkg.css');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeLink.setAttribute('href', '../css/style15.css');
-                localStorage.setItem('theme', 'light');
-            }
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            
+            // Chemins avec ../ pour rester sur le bon style
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
         }
-
-        window.onload = function() {
-            const savedTheme = localStorage.getItem('theme');
-            const themeLink = document.getElementById('theme-style');
-            if (savedTheme === 'dark') {
-                themeLink.setAttribute('href', '../css/style9_darkg.css');
-            }
-        }
-</script>
+    </script>
 
 
     <nav class="navbar">
