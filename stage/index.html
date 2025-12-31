@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loic Kebabla - Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <link id="theme-style" rel="stylesheet" href="../css/style15.css">
 
     <script>
@@ -17,6 +18,16 @@
     </script>
 </head>
 <body>
+<script>
+        function toggleTheme() {
+            const themeLink = document.getElementById('theme-style');
+            const isSunset = themeLink.getAttribute('href').includes('style15.css');
+            
+            // Chemins avec ../ pour rester sur le bon style
+            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
+            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
+        }
+    </script>
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">L.K</a>
@@ -29,7 +40,8 @@
                 <li><a href="../veilletechno/">Veille</a></li>
                 <li><a href="../presentationperso/">À propos</a></li>
                 <li><a href="../contact/" class="btn-contact">Contact</a></li>
-                <li><button onclick="toggleTheme()" class="theme-switch">🌙 / ☀️</button></li>
+                
+                <li><button onclick="toggleTheme()" class="theme-switch" title="Changer de thème">🌙 / ☀️</button></li>
             </ul>
         </div>
     </nav>
@@ -41,107 +53,31 @@
         </section>
 
         <div class="container">
+            
             <div class="timeline-item">
                 <span class="timeline-date">1ère année BTS SIO (6 semaines)</span>
-                <h3>NEOTEAMS.IO Cambrai</h3>
+                <h3>NEOTEAMS.IO cambrai</h3>
                 <p><strong>Missions :</strong> Services techniques & infrastructure.</p>
-                <p>Installation de services (Nextcloud), certificats SSL et maintenance matérielle.</p>
+                <p>J’ai participé à l’installation et la mise en service de différents services, dont Nextcloud, ainsi qu’à la configuration de certificats SSL. J’ai également réalisé de la maintenance matérielle sur les serveurs et postes clients.</p>
                 
                 <div class="map-responsive">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.123456789012!2d2.31!3d48.87!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66efc1234567%3A0xabcdef1234567890!2s75008%20Paris!5e0!3m2!1sfr!2sfr!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-
-                <h2 class="section-title" style="margin-top: 4rem; border-left: 6px solid var(--secondary);">Mes Projets Récents</h2>
-                
-                <div class="grid-container">
-                    <article class="card">
-                        <span class="tag finished">Terminé ✅</span>
-                        <h3>Mise en place d'un serveur</h3>
-                        <p>Installation et configuration d'un serveur Ubuntu.</p>
-                        <button class="btn-more" onclick="openModal('serveur')">En savoir plus →</button>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag in-progress">En cours 🛠️</span>
-                        <h3>Portfolio Personnel</h3>
-                        <p>Le site sur lequel vous naviguez actuellement.</p>
-                        <button class="btn-more" onclick="openModal('portfolio')">En savoir plus →</button>
-                    </article>
-
-                    <article class="card">
-                        <span class="tag finished">Terminé ✅</span>
-                        <h3>Mise en place de Passbolt</h3>
-                        <p>Installation et configuration du service Passbolt.</p>
-                        <button class="btn-more" onclick="openModal('passbolt')">En savoir plus →</button>
-                    </article>
-                </div>
             </div>
+
+            <div class="card" style="margin-top: 3rem; border-left: 5px solid var(--secondary);">
+                <h3>🚀 Prochain Stage</h3>
+                <p>Prévu du 17 Novembre au 19 Décembre 2025.</p>
+                <p>Objectif : Validation de la 2nde année de BTS SIO.</p>
+            </div>
+
         </div>
     </main>
 
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modal-title">Titre du Projet</h2>
-                <button class="close-btn" onclick="closeModal()">×</button>
-            </div>
-            <div class="modal-body">
-                <h4>Pourquoi ?</h4>
-                <p id="modal-why"></p>
-                <h4>Comment ?</h4>
-                <p id="modal-how"></p>
-                <h4>Aperçu du projet</h4>
-                <div class="modal-img-container">
-                    <p id="modal-preview-text"></p>
-                    <div class="img-placeholder">🖼️ Capture d'écran à venir</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <footer>
+        <p>© 2025 - Loic Kebabla</p>
+    </footer>
 
-    <footer><p>© 2025 - Loic Kebabla</p></footer>
 
-    <script>
-        const projectDetails = {
-            'serveur': {
-                title: "Mise en place d'un serveur",
-                why: "Ce projet visait à centraliser les ressources et sécuriser l'accès aux données locales.",
-                how: "J'ai configuré un serveur Ubuntu avec accès SSH sécurisé et pare-feu UFW.",
-                preview: "Configuration du terminal et des services de fichiers."
-            },
-            'portfolio': {
-                title: "Portfolio Personnel",
-                why: "Créer une vitrine professionnelle pour mes stages et projets de BTS SIO.",
-                how: "Utilisation de HTML5, CSS3 avec variables pour le changement de thème et JavaScript.",
-                preview: "Structure responsive et design moderne."
-            },
-            'passbolt': {
-                title: "Mise en place de Passbolt",
-                why: "Permettre une gestion sécurisée et collaborative des mots de passe en entreprise.",
-                how: "Installation sur serveur Debian avec Docker et configuration des clés GPG.",
-                preview: "Interface de gestion des coffres-forts numériques."
-            }
-        };
-
-        function openModal(id) {
-            const project = projectDetails[id];
-            document.getElementById('modal-title').innerText = project.title;
-            document.getElementById('modal-why').innerText = project.why;
-            document.getElementById('modal-how').innerText = project.how;
-            document.getElementById('modal-preview-text').innerText = project.preview;
-            document.getElementById('modal-overlay').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('modal-overlay').style.display = 'none';
-        }
-
-        function toggleTheme() {
-            const themeLink = document.getElementById('theme-style');
-            const isSunset = themeLink.getAttribute('href').includes('style15.css');
-            themeLink.setAttribute('href', isSunset ? '../css/style9_darkg.css' : '../css/style15.css');
-            localStorage.setItem('theme', isSunset ? 'dark' : 'light');
-        }
-    </script>
 </body>
 </html>
